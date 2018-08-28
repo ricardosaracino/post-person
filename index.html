@@ -35,10 +35,10 @@
                     url: url,
                     data: data,
                     success: function (results) {
-                        $('#results').innerText(JSON.stringify(results, '  '));
+                        $('#results').text(JSON.stringify(results, null, '  '));
                     },
-                    success: function (results) {
-                        $('#results').innerText(JSON.stringify(results, null, '  '));
+                    error: function (results) {
+                        $('#results').text(JSON.stringify(results, null, '  '));
                     }
                 });
             })
