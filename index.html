@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PostPerson</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <script>
+
+        $(function () {
+            console.log('ready');
+
+            $('#send').click(function () {
+
+                console.log('send');
+
+                var type = $('#type').val();
+
+                var url = $('#url').val();
+
+                var data = $('#data').val();
+
+                $.ajax({
+                    type: type,
+                    url: url,
+                    data: data,
+                    success: function (results) {
+                        $('#results').innerText(results);
+                    }
+                });
+            })
+        });
+    </script>
+
+
+    <style>
+        body {
+            margin: 15px;
+            background-color: whitesmoke;
+        }
+
+        button {
+            min-width: 80px;
+            margin: 5px;
+
+        }
+
+        textarea {
+            width: 800px;
+            height: 400px;
+            margin: 5px;
+
+        }
+
+        input {
+            margin: 5px;
+            width: 800px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<h1>Post Person</h1>
+
+<div>
+    <input id="type" placeholder="get, post">
+</div>
+
+<div>
+    <input id="url" placeholder="url">
+</div>
+
+<div>
+    <textarea id="data"></textarea>
+</div>
+
+<button id="send">Send</button>
+
+
+<div id="results">
+
+</div>
+
+</body>
+</html>
